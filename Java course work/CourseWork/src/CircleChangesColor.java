@@ -26,6 +26,17 @@ public class CircleChangesColor extends Frame implements MouseListener {
 		frame.addMouseListener(frame);
 	}
 	
+	private static Boolean MouseIsInCircle(int mouseX, int mouseY) {
+		int radius = _diameter / 2;
+		int centerX = _circleX + radius;
+		int centerY = _circleY + radius;
+		
+		int yDiff = Math.abs(centerY - mouseY);
+		int xDiff = Math.abs(centerX - mouseX);
+		
+		return Math.pow(radius, 2) >= Math.pow(xDiff, 2) + Math.pow(yDiff, 2);
+	}
+	
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(_colors[_currentColorIndex]);
@@ -44,17 +55,6 @@ public class CircleChangesColor extends Frame implements MouseListener {
 		}
 
 		repaint();
-	}
-	
-	private static Boolean MouseIsInCircle(int mouseX, int mouseY) {
-		int radius = _diameter / 2;
-		int centerX = _circleX + radius;
-		int centerY = _circleY + radius;
-		
-		int yDiff = Math.abs(centerY - mouseY);
-		int xDiff = Math.abs(centerX - mouseX);
-		
-		return Math.pow(radius, 2) >= Math.pow(xDiff, 2) + Math.pow(yDiff, 2);
 	}
 
 	@Override
