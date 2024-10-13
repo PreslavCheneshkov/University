@@ -17,6 +17,7 @@ public class LinesFromTextCoordinates extends Frame {
 		frame.setBackground(Color.LIGHT_GRAY);
 		frame.addWindowListener(new WindowClosingAdapter(false));
 		frame.setVisible(true);
+		frame.setTitle("Отсечки, чиито координати са прочетени от LineCoordinates.txt");
 		readCoordinates();
 	}
 	
