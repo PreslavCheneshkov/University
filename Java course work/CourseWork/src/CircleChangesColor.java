@@ -12,7 +12,7 @@ public class CircleChangesColor extends Frame implements MouseListener {
 	private static int _circleX = 300;
 	private static int _circleY = 200;
 	private static int _currentColorIndex;
-	private static Color[] _colors = new Color[] { Color.RED, Color.YELLOW, Color.BLUE, Color.GREEN, Color.WHITE, Color.CYAN, Color.BLACK, Color.ORANGE, Color.PINK };;
+	private static Color[] _colors = new Color[] { Color.RED, Color.YELLOW, Color.BLUE, Color.GREEN, Color.WHITE, Color.CYAN, Color.BLACK, Color.ORANGE, Color.PINK };
 	
 	public static void main(String[] args) {
 		_currentColorIndex = 0;
