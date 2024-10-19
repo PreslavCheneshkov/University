@@ -14,16 +14,19 @@ public class CircleChangesColor extends Frame implements MouseListener {
 	private static int _currentColorIndex;
 	private static Color[] _colors = new Color[] { Color.RED, Color.YELLOW, Color.BLUE, Color.GREEN, Color.WHITE, Color.CYAN, Color.BLACK, Color.ORANGE, Color.PINK };
 	
-	public static void main(String[] args) {
+	public CircleChangesColor() {
 		_currentColorIndex = 0;
+		this.setTitle("Кръг, който сменя цвета си при натискане с мишката върху него");
+		this.setLocation(400, 300);
+		this.setSize(800, 600);
+		this.setBackground(Color.LIGHT_GRAY);
+		this.addWindowListener(new WindowClosingAdapter(false));
+		this.setVisible(true);
+		this.addMouseListener(this);
+	}
+	
+	public static void main(String[] args) {
 		CircleChangesColor frame = new CircleChangesColor();
-		frame.setTitle("Кръг, който сменя цвета си при натискане с мишката върху него");
-		frame.setLocation(400, 300);
-		frame.setSize(800, 600);
-		frame.setBackground(Color.LIGHT_GRAY);
-		frame.addWindowListener(new WindowClosingAdapter(false));
-		frame.setVisible(true);
-		frame.addMouseListener(frame);
 	}
 	
 	private static Boolean MouseIsInCircle(int mouseX, int mouseY) {

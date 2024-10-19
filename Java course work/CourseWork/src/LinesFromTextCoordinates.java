@@ -10,14 +10,17 @@ public class LinesFromTextCoordinates extends Frame {
 	
 	private static ArrayList<Line> _lines = new ArrayList<Line>();
 	
+	public LinesFromTextCoordinates() {
+		this.setLocation(400, 300);
+		this.setSize(800, 600);
+		this.setBackground(Color.LIGHT_GRAY);
+		this.addWindowListener(new WindowClosingAdapter(false));
+		this.setVisible(true);
+		this.setTitle("Отсечки, чиито координати са прочетени от LineCoordinates.txt");
+	}
+	
 	public static void main(String[] args) throws IOException {
 		LinesFromTextCoordinates frame = new LinesFromTextCoordinates();
-		frame.setLocation(400, 300);
-		frame.setSize(800, 600);
-		frame.setBackground(Color.LIGHT_GRAY);
-		frame.addWindowListener(new WindowClosingAdapter(false));
-		frame.setVisible(true);
-		frame.setTitle("Отсечки, чиито координати са прочетени от LineCoordinates.txt");
 		readCoordinates();
 	}
 	
