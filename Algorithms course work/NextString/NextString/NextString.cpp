@@ -30,15 +30,15 @@ char getNextCharacter(char currentCharacter, vector<char>& uniqueCharacters)
 
 		return uniqueCharacters[i];
 	}
+	return -1;
 }
 
 bool isLargestCharacter(char character, vector<char>& uniqueCharacters)
 {
-	bool isLargestCharacter = character == uniqueCharacters.at(uniqueCharacters.size() - 1);
-	return isLargestCharacter;
+	return character == uniqueCharacters.at(uniqueCharacters.size() - 1);
 }
 
-string getActualInputString(string& inputString, int targetStringLength, char smallestCharacter)
+string getActualInputString(string inputString, int targetStringLength, char smallestCharacter)
 {
 	int stringSize = inputString.size();
 	if (targetStringLength == stringSize)
