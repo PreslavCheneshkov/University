@@ -2,10 +2,6 @@ import java.io.*;
 import java.awt.*;
 import java.util.*;
 
-/*
-	1.8 В един текстов файл са зададени данни за отсечки. В един ред са данните Х и У за първата точка, последвани от Х и У за втората точка.
-	Като разделител служи интервал. Да се състави Application на Java за прочитане на този файл и графично представяне на отсечките.
-*/
 public class LinesFromTextCoordinates extends Frame {
 	
 	private static ArrayList<Line> _lines = new ArrayList<Line>();
