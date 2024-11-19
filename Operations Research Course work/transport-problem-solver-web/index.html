@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transport Problem solver</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    /> -->
+  </head>
+  <body>
+    <div id="main-container" class="row">
+      <h1>Добре дошли в сайта за решаване на транспортна задача!</h1>
+      <div class="col-6">
+        <div class="row">
+          <h4 class="col-8">Въведете броя на доставчиците:</h4>
+          <input
+            id="suppliersCountInput"
+            type="number"
+            class="col-3"
+            value="3"
+          />
+        </div>
+        <div class="row">
+          <h4 class="col-8">Въведете броя на складовете:</h4>
+          <input
+            id="warehousesCountInput"
+            type="number"
+            class="col-3"
+            value="3"
+          />
+        </div>
+      </div>
+      <div class="btn btn-primary col-3 offset-1" onclick="drawTable()">
+        Нарисувай таблицата!
+      </div>
+
+      <br />
+    </div>
+    <div id="table-container" class="row-12">
+      <table class="table col-6 offset-3">
+        <tr>
+          <th><sub>ui</sub>\<sup>vj</sup></th>
+          <th>V1</th>
+          <th>V2</th>
+          <th>V3</th>
+        </tr>
+        <tr>
+          <td>U1</td>
+          <td>V2</td>
+          <td>V3</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
