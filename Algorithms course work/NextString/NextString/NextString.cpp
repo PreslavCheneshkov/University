@@ -57,11 +57,8 @@ string getActualInputString(string inputString, int targetStringLength, char sma
 
 void handleInput(int& inputStringLength, string& inputString, int& outputStringLength)
 {
-	cout << "Please enter n = ";
 	cin >> inputStringLength;
-	cout << "Please enter the input string: ";
 	cin >> inputString;
-	cout << "Please enter k = ";
 	cin >> outputStringLength;
 
 	if (inputStringLength < 1 || inputStringLength > 100000 ||
@@ -83,9 +80,7 @@ int main()
 	string actualString = getActualInputString(inputString, outputStringLength, uniqueCharacters.at(0));
 	if (uniqueCharacters.size() == 1)
 	{
-		cout << "\n\n=================================================================\n\n";
-		cout << actualString << " is the only possible string!";
-		cout << "\n\n=================================================================\n\n";
+		cout << actualString;
 		exit(0);
 	}
 
@@ -115,7 +110,5 @@ int main()
 
 	string reversedOutputString = outputStringStream.str();
 	reverse(reversedOutputString.begin(), reversedOutputString.end());
-	cout << "\n\n=================================================================\n\n";
-	cout << "The next string in alphabetical order is: " << reversedOutputString;
-	cout << "\n\n=================================================================\n\n";
+	cout << reversedOutputString;
 }
