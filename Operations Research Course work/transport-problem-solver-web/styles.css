@@ -6,7 +6,15 @@ body {
     padding: 2rem;
   }
 
-  #main-container {
+#main-container {
     margin:20px;
-  }
+}
 
+input {
+    max-width: 52px;
+    
+}
+
+table {
+    text-align:right;
+}
