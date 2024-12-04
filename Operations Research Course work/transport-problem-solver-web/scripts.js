@@ -3,6 +3,7 @@ const deliveryValues = [];
 const warehouseValues = [];
 let realRowCount = 0;
 let realColCount = 0;
+const routeWeights = [];
 
 function drawTable() {
     console.log('in draw table');
@@ -26,6 +27,8 @@ function drawTable() {
     tableElement.classList.add('table-striped')
     tableElement.id = 'inputTable';
 
+    // reset
+    routeWeights.length = 0;
 
     for (let i = 0; i < rowCount; i++) {
         const rowElement = document.createElement('tr');
@@ -57,6 +60,11 @@ function drawTable() {
                     } else {
                         const inputRouteWeightElement = createInputElement('routeWeight');
                         inputRouteWeightElement.id = `${i}-${j}`;
+                        routeWeights.push({
+                            row: i,
+                            col: j,
+                            // add value in solve()    
+                        });
                         colElement.appendChild(inputRouteWeightElement);
                     }
                     rowElement.appendChild(colElement);
@@ -91,33 +99,49 @@ function solve() {
     resetVariables();
 
     const deliveryValueElements = document.getElementsByClassName('deliveryValue');
+
+    let deliverySum = 0;
+    let warehouseSum = 0;
+
     for (const element of deliveryValueElements) {
         deliveryValues.push({
             amount: element.value,
             isFinished: false
         });
-    }
-
-    for (let i = 0; i < deliveryValues.length; i++) {
-        console.log(`Delivery value ${i}: ${deliveryValues[i].amount}`);
-        console.log(`Is finished ${i}: ${deliveryValues[i].isFinished}`);
-        
+        deliverySum += element.value;
     }
 
     const warehouseValueElements = document.getElementsByClassName('warehouseValue');
     for (const element of warehouseValueElements) {
         warehouseValues.push(element.value);
+        warehouseSum += element.value;    
+    }
+
+    if (warehouseSum > deliverySum) {
+        // TODO: handle
     }
 
     const routeWeightElements = document.getElementsByClassName('routeWeight');
-    let currentCols = 0;
-    let currentRows = 0;
-    for (const element of routeWeightElements) {
-        const weight = element.value;
-        const position = element.id;
-        console.log(weight);
-        console.log(position);
+    let currentCol = 0;
+    let currentRow = 0;
+
+    const routeValues = [ [] ];
+    
+    for (let i = 0; i < routeWeightElements.length; i++) {
+        routeWeights[i].value = routeWeightElements[i].value;
+        routeValues[currentCol].push(NaN);
+        currentCol++;
+        if (routeWeights[i].row != currentRow) {
+            currentRow++;
+            currentCol = 0;
+            routeValues.push([]);
+        }
     }
+
+    // North-West angle:
+    routeValues[0][0] = deliveryValues[0].amount  
+
+
 }
 
 function resetVariables() {
