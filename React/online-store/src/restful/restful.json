@@ -1,0 +1,28 @@
+{
+  "items": [   
+        {
+            "id": 1,
+            "name": "Джанти 16 цола",
+            "price": 289.99,
+            "imageURL": "wheel16.webp"
+        },
+        {
+            "id": 2,
+            "name": "Джанти 17 цола",
+            "price": 379.99,
+            "imageURL": "wheel17.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Гуми Continental 205/55/16",
+            "price": 289.99,
+            "imageURL": "continental16.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Гуми Michellin 225/45/17",
+            "price": 289.99,
+            "imageURL": "michellin17.webp"
+        }
+    ]
+}

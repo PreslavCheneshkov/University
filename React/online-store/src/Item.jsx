@@ -1,6 +1,5 @@
 import './Item.css'
 
-
 function Item({item, cart, updateCart}) {
 
     let currentItemIndex = -1;
@@ -22,7 +21,7 @@ function Item({item, cart, updateCart}) {
     return <div key={item.id}>
         <h4>Име на артикула: {item.name}</h4>
         <h4>Цена на артикула: {item.price}</h4>
-        <img src={item.imageURL} />
+        <img src={`assets\\${item.imageURL}`} />
         <button onClick={addToCart}>Добави в количката</button>
     </div>
 }
