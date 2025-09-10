@@ -1,0 +1,32 @@
+{
+    "games": [
+        {
+            "id": 1,
+            "name": "Civilization 6",
+            "category": "strategy",
+            "year": 2016,
+            "imageURL": "civ.svg"
+        },
+        {
+            "id": 2,
+            "name": "World of Warcraft",
+            "category": "MMO-RPG",
+            "year": 2004,
+            "imageURL": "wow"
+        },
+        {
+            "id": 3,
+            "name": "League of Legends",
+            "category": "MOBA",
+            "year": 2012,
+            "imageURL": "lol"
+        },
+        {
+            "id": 4,
+            "name": "Counter-Strike",
+            "category": "FPS",
+            "year": 1998,
+            "imageURL": "cs"
+        }
+    ]
+}
