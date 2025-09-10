@@ -10,10 +10,9 @@ function Shop({cart, updateCart}) {
     let [availableItems, setAvailableItems] = useState([]);
 
     async function getItems() {
-        const itemListJSON = await fetch('http://localhost:8000/items');
+        const itemListJSON = await fetch('http://localhost:3001/tireshop/cheap');
         console.log(itemListJSON);
         const itemList = await itemListJSON.json();
-        console.log(itemList);
         setAvailableItems(itemList);
     }
 
