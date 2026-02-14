@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pictureName">Текст на картинката</string>
+    <string name="instruction">Натинси бутона</string>
+</resources>

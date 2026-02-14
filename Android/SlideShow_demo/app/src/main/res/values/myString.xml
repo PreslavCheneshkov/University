@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nextButtonLabel">Next</string>
+    <string name="previousButtonLabel">Previous</string>
+    <string name="elephantName">Слон</string>
+    <string name="zebraName">Зебра</string>
+    <string name="bearName">Мечка</string>
+    <string name="doeName">Сърна</string>
+    <string name="foxName">Лисица</string>
+    <string name="kangarooName">Кенгуру</string>
+    <string name="monkeyName">Маймуна</string>
+    <string name="tigerName">Тигър</string>
+    <string name="pandaName">Панда</string>
+</resources>
