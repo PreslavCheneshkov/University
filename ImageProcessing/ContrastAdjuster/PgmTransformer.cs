@@ -1,7 +1,11 @@
-﻿namespace ContrastAdjuster;
+﻿using System.Text;
+
+namespace ContrastAdjuster;
 
 public class PgmTransformer
 {
+    private static int _currentMaxSize;
+
     public static Bitmap ConvertPgmToBitmap(string sourceFilePath)
     {
         using var reader = new StreamReader(sourceFilePath);
@@ -43,6 +47,7 @@ public class PgmTransformer
                 continue;
 
             maxValue = int.Parse(line);
+            _currentMaxSize = maxValue;
             break;
         }
 
@@ -83,9 +88,15 @@ public class PgmTransformer
         return bitmap;
     }
 
-    public static Bitmap AdjustContrast(Bitmap source, int r1, int s1, int r2, int s2)
+    public static ContrastAdjustResult AdjustContrast(Bitmap source, int r1, int s1, int r2, int s2)
     {
         var transformed = new Bitmap(source.Width, source.Height);
+        var sb = new StringBuilder();
+
+        sb.AppendLine("P2");
+        sb.AppendLine("# Creator: ContrastAdjuster");
+        sb.AppendLine($"{source.Width} {source.Height}");
+        sb.AppendLine(_currentMaxSize.ToString());
 
         for (int y = 0; y < source.Height; y++)
         {
@@ -96,12 +107,14 @@ public class PgmTransformer
 
                 int newGray = Transform(gray, r1, s1, r2, s2);
                 newGray = Math.Clamp(newGray, 0, 255);
+                sb.Append($"{newGray} ");
 
                 transformed.SetPixel(x, y, Color.FromArgb(newGray, newGray, newGray));
             }
+            sb.Append(Environment.NewLine);
         }
 
-        return transformed;
+        return new ContrastAdjustResult(transformed, sb.ToString());
     }
 
     private static int Transform(int value, int r1, int s1, int r2, int s2)

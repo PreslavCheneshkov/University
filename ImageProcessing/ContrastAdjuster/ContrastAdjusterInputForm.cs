@@ -1,20 +1,12 @@
 ﻿namespace ContrastAdjuster;
 
-public partial class Form1 : Form
+public partial class ContrastAdjusterInputForm : Form
 {
-    public Form1()
+    private const int FORM_WIDTH = 1200;
+
+    public ContrastAdjusterInputForm()
     {
         InitializeComponent();
-    }
-
-    private void Form1_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-    {
-
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -26,46 +18,29 @@ public partial class Form1 : Form
         if (openFileDialog.ShowDialog() == DialogResult.OK)
         {
             string filePath = openFileDialog.FileName;
-
             var image = PgmTransformer.ConvertPgmToBitmap(filePath);
+
             pictureBox1.Image = image;
+            pictureBox1.Padding = new Padding
+            {
+                Left = (FORM_WIDTH - image.Width) / 2,
+                Top = 60,
+                Right = 0,
+                Bottom = 0,
+            };
 
-            this.input_r1.Enabled = true;
-            this.input_s2.Enabled = true;
-            this.input_r2.Enabled = true;
-            this.input_s1.Enabled = true;
+            input_r1.Enabled = true;
+            input_s2.Enabled = true;
+            input_r2.Enabled = true;
+            input_s1.Enabled = true;
         }
-    }
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label2_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label3_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void numericUpDown5_ValueChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void panel1_Paint(object sender, PaintEventArgs e)
-    {
-
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
-        var adjustedImage = PgmTransformer.AdjustContrast((Bitmap)pictureBox1.Image, (int)input_r1.Value, (int)input_s1.Value, (int)input_r2.Value, (int)input_s2.Value);
-        pictureBox2.Image = adjustedImage;
+        var adjustedImageResult = PgmTransformer.AdjustContrast((Bitmap)pictureBox1.Image, (int)input_r1.Value, (int)input_s1.Value, (int)input_r2.Value, (int)input_s2.Value);
+        var outputForm = new OutputForm(adjustedImageResult);
+        outputForm.Show();
     }
 
     private void input_r1_ValueChanged(object sender, EventArgs e)
